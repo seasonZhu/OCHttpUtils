@@ -8,6 +8,7 @@
 
 #import "HttpUtils.h"
 #import <AFNetworking.h>
+#import <YYModel.h>
 
 @implementation HttpUtils
 
@@ -49,7 +50,7 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater {
  请求
 
  @param url 网址
- @param method 请求方法 @"Post" @"Get"等
+ @param method 请求方法 @"Post"和@"Get"
  @param parameters 请求字段
  @param responseClass 响应的模型类型
  @param callbackApdater 回调

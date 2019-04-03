@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "CallbackProtocol.h"
-#import <YYModel.h>
-@class YYMode;
 
 NS_ASSUME_NONNULL_BEGIN
 
