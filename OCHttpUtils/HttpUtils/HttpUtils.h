@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param url 网址
  @param parameters 请求字段
- @param responseClass 响应的模型类型 为什么responseClass必须是Class类型 而不能是id<YYModel> 因为YYModel中的具体协议中返回的是instancetype 明确的类型, 而不是id<YYModel>
+ @param responseClass 响应的模型类型 为什么responseClass必须是Class类型 而不能是id<YYModel> 因为YYModel中的协议中没有yy_modelWithJSON的方法,而在NSObject<YYModel>的分类中具体方法返回的是instancetype明确的类型
  @param callbackApdater 回调
  */
 + (void)postURL:(NSString *)url parameters:(NSDictionary *)parameters responseClass:(Class)responseClass callbackApdater:(id<CallbackProtocol>)callbackApdater;
