@@ -5,6 +5,5 @@
 
 target 'OCHttpUtils' do
  pod 'YYModel'
- pod 'MBProgressHUD'
  pod 'AFNetworking'
 end

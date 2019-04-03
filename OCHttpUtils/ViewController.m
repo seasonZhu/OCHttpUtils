@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "CallbackApdater.h"
+#import "HttpUtils.h"
+#import "Model.h"
 
 @interface ViewController ()
 
@@ -16,7 +19,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    CallbackApdater *callbackApdater = [CallbackApdater new];
+    
+    callbackApdater.handle = ^(id value, NSInteger statusCode, HttpResponseStatus httpResponseStatus) {
+        Model *model = (Model *)value;
+        NSLog(@"httpResponseStatus: %ld", (long)httpResponseStatus);
+        NSLog(@"statusCode: %ld", (long)statusCode);
+        NSLog(@"model: %@", model);
+    };
+    
+    callbackApdater.exception = ^(NSError *error, NSInteger statusCode, HttpResponseStatus httpResponseStatus) {
+        NSLog(@"httpResponseStatus: %ld", (long)httpResponseStatus);
+        NSLog(@"statusCode: %ld", (long)statusCode);
+        NSLog(@"error: %@", error);
+    };
+    
+    [HttpUtils postURL:@"http://sun.topray-media.cn/tz_inf/api/topics" parameters:@{} responseClass: [Model class] callbackApdater:callbackApdater];
 }
 
 

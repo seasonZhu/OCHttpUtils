@@ -9,29 +9,36 @@
 #import <Foundation/Foundation.h>
 #import "CallbackProtocol.h"
 
-typedef void(^CallbackHandle)(id value);
-typedef void(^CallbackException)(id exception);
+@interface CallbackApdater : NSObject<CallbackProtocol>
 
-@interface CallbackApdater : NSObject <CallbackProtocol>
-/** 正常回调句柄 (Normal callback handle)*/
+/**
+ 成功回调句柄
+ */
 @property(nonatomic,copy) CallbackHandle handle;
 
-/** 异常回调句柄 (Exception callback handle)*/
+
+/**
+ 失败回调句柄
+ */
 @property(nonatomic,copy) CallbackException exception;
 
 /**
- * 回调句柄(Callback handle)
- *
- * @param value 成功回调
+ 成功的回调句柄
+ 
+ @param value 回调的值
+ @param statusCode 响应的code
+ @param httpResponseStatus 响应状态
  */
-- (void)handle:(id)value;
+- (void)handleValue:(id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
 
 /**
- * 异常处理(Troubleshooting)
- *
- * @param exception 具体的异常信息
+ 失败的回调句柄
+ 
+ @param error 回调的错误
+ @param statusCode 响应的code
+ @param httpResponseStatus 响应状态
  */
-- (void)exception:(id)exception;
+- (void)exception:(NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
 @end
 
 

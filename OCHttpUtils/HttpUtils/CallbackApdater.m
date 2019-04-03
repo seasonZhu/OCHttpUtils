@@ -10,12 +10,13 @@
 
 @implementation CallbackApdater
 
--(void) handle:(id) value {
-    _handle(value);
+- (void)handleValue:(id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus {
+    _handle(value, statusCode, httpResponseStatus);
 }
 
--(void) exception:(id) exception {
-    _exception(exception);
+
+- (void)exception:(NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus {
+    _exception(error, statusCode, httpResponseStatus);
 }
 
 @end

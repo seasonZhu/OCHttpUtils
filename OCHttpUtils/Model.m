@@ -8,6 +8,19 @@
 
 #import "Model.h"
 
-@implementation Model
+@implementation ListItem
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
+    return @{
+             @"numId": @"id"
+             };
+}
+@end
 
+
+@implementation Model
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {
+    return @{
+             @"list": [ListItem class]
+             };
+}
 @end

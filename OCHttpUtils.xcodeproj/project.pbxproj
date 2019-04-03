@@ -14,7 +14,8 @@
 		6113332B219AB30B004EA7FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61133329219AB30B004EA7FB /* LaunchScreen.storyboard */; };
 		6113332E219AB30B004EA7FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6113332D219AB30B004EA7FB /* main.m */; };
 		6113333A219AB729004EA7FB /* CallbackApdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 61133339219AB729004EA7FB /* CallbackApdater.m */; };
-		6113333D219AB835004EA7FB /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6113333C219AB835004EA7FB /* BaseModel.m */; };
+		611E435D225483E400B15F67 /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 611E435C225483E400B15F67 /* HttpUtils.m */; };
+		611E43612254935D00B15F67 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 611E43602254935D00B15F67 /* Model.m */; };
 		8504FCF88160F520C4AA27F4 /* libPods-OCHttpUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51A763536026936470D9D2A /* libPods-OCHttpUtils.a */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +35,10 @@
 		61133335219AB69D004EA7FB /* CallbackProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallbackProtocol.h; sourceTree = "<group>"; };
 		61133338219AB729004EA7FB /* CallbackApdater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallbackApdater.h; sourceTree = "<group>"; };
 		61133339219AB729004EA7FB /* CallbackApdater.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallbackApdater.m; sourceTree = "<group>"; };
-		6113333B219AB835004EA7FB /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
-		6113333C219AB835004EA7FB /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		611E435B225483E400B15F67 /* HttpUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpUtils.h; sourceTree = "<group>"; };
+		611E435C225483E400B15F67 /* HttpUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpUtils.m; sourceTree = "<group>"; };
+		611E435F2254935D00B15F67 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		611E43602254935D00B15F67 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		B51A763536026936470D9D2A /* libPods-OCHttpUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCHttpUtils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,6 +80,8 @@
 				6113331F219AB308004EA7FB /* AppDelegate.m */,
 				61133321219AB308004EA7FB /* ViewController.h */,
 				61133322219AB308004EA7FB /* ViewController.m */,
+				611E435F2254935D00B15F67 /* Model.h */,
+				611E43602254935D00B15F67 /* Model.m */,
 				61133324219AB308004EA7FB /* Main.storyboard */,
 				61133327219AB30B004EA7FB /* Assets.xcassets */,
 				61133329219AB30B004EA7FB /* LaunchScreen.storyboard */,
@@ -92,8 +97,8 @@
 				61133335219AB69D004EA7FB /* CallbackProtocol.h */,
 				61133338219AB729004EA7FB /* CallbackApdater.h */,
 				61133339219AB729004EA7FB /* CallbackApdater.m */,
-				6113333B219AB835004EA7FB /* BaseModel.h */,
-				6113333C219AB835004EA7FB /* BaseModel.m */,
+				611E435B225483E400B15F67 /* HttpUtils.h */,
+				611E435C225483E400B15F67 /* HttpUtils.m */,
 			);
 			path = HttpUtils;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				TargetAttributes = {
 					6113331A219AB308004EA7FB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -212,9 +218,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				61133323219AB308004EA7FB /* ViewController.m in Sources */,
+				611E435D225483E400B15F67 /* HttpUtils.m in Sources */,
 				6113332E219AB30B004EA7FB /* main.m in Sources */,
+				611E43612254935D00B15F67 /* Model.m in Sources */,
 				6113333A219AB729004EA7FB /* CallbackApdater.m in Sources */,
-				6113333D219AB835004EA7FB /* BaseModel.m in Sources */,
 				61133320219AB308004EA7FB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,8 +365,9 @@
 			baseConfigurationReference = 2CA4E68928A74129608ABC2D /* Pods-OCHttpUtils.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2U55C9DQL3;
+				DEVELOPMENT_TEAM = B6Q5RKSB5N;
 				INFOPLIST_FILE = OCHttpUtils/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -367,6 +375,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.season.lostsakura.OCHttpUtils;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OCHttpUtils/HttpUtils/OCHttpUtils-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -376,8 +387,9 @@
 			baseConfigurationReference = 14D345C08B1803667036F922 /* Pods-OCHttpUtils.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2U55C9DQL3;
+				DEVELOPMENT_TEAM = B6Q5RKSB5N;
 				INFOPLIST_FILE = OCHttpUtils/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -385,6 +397,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.season.lostsakura.OCHttpUtils;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OCHttpUtils/HttpUtils/OCHttpUtils-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
