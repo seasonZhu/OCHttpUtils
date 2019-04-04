@@ -35,7 +35,7 @@
         NSLog(@"error: %@", error);
     };
     
-    [HttpUtils postURL:@"http://sun.topray-media.cn/tz_inf/api/topics" parameters:@{} responseClass: [Model class] callbackApdater:callbackApdater];
+    [HttpUtils postURL:@"http://sun.topray-media.cn/tz_inf/api/topics" parameters: nil responseClass: [Model class] callbackApdater:callbackApdater];
 }
 
 

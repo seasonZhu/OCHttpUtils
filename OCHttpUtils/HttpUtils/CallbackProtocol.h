@@ -8,17 +8,24 @@
 
 /**
  响应状态枚举
-
+ 
  - ResponseSuccessAndConformYYModel: 响应成功 响应码为200 而且其ResponseClass遵守YYModel协议
  - ResponseSuccessAndNotConformYYModel: 响应成功 响应码为200 而且其ResponseClass不遵守YYModel协议
  - ResponseSuccessAndStatusCodeNot200: 响应成功 响应码不为200
  - ResponseFailure: 响应失败
+ - UpdateSuccessAndConformYYModel: 上传成功 响应码为200 而且其ResponseClass遵守YYModel协议
+ - UpdateSuccessAndNotConformYYModel: 上传成功 响应码为200 而且其ResponseClass不遵守YYModel协议
+ - UpdateFailure: 上传失败
  */
 typedef NS_ENUM(NSInteger, HttpResponseStatus){
     ResponseSuccessAndConformYYModel,
     ResponseSuccessAndNotConformYYModel,
     ResponseSuccessAndStatusCodeNot200,
-    ResponseFailure
+    ResponseFailure,
+    
+    UpdateSuccessAndConformYYModel,
+    UpdateSuccessAndNotConformYYModel,
+    UpdateFailure
 };
 
 /**
@@ -40,6 +47,26 @@ typedef void(^CallbackHandle)(id value, NSInteger statusCode, HttpResponseStatus
 typedef void(^CallbackException)(NSError *error, NSInteger statusCode, HttpResponseStatus httpResponseStatus);
 
 /**
+ 上传结果的回调
+
+ @param result 上传是否成功
+ @param value id类型的值
+ @param statusCode 响应码
+ @param httpResponseStatus 响应状态
+ @param error 上传错误,先判断result,最后关注error
+ */
+typedef void(^UpdateResultHandle)(BOOL result, id value, NSInteger statusCode, HttpResponseStatus httpResponseStatus, NSError *error);
+
+
+/**
+ 上传的进度回调
+
+ @param progress NSProgress
+ @param percent 上传百分比
+ */
+typedef void(^UpdateProgressHandle)(NSProgress *progress, double percent);
+
+/**
  回调协议
  */
 @protocol CallbackProtocol <NSObject>
@@ -55,6 +82,17 @@ typedef void(^CallbackException)(NSError *error, NSInteger statusCode, HttpRespo
  */
 @property(nonatomic,copy) CallbackException exception;
 
+
+/**
+ 上传回调句柄
+ */
+@property (nonatomic, copy) UpdateResultHandle resultHandle;
+
+
+/**
+ 上传进度句柄
+ */
+@property (nonatomic, copy) UpdateProgressHandle progressHandle;
 
 /**
  成功的回调句柄
@@ -73,5 +111,26 @@ typedef void(^CallbackException)(NSError *error, NSInteger statusCode, HttpRespo
  @param httpResponseStatus 响应状态
  */
 - (void)exception:(NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
+
+
+/**
+ 上传结果的回调句柄
+
+ @param result 上传结果
+ @param value 回调的值
+ @param statusCode 响应的code
+ @param httpResponseStatus 响应状态
+ @param error 上传错误
+ */
+- (void)updateResult:(BOOL)result value:(id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus error:(NSError *)error;
+
+
+/**
+ 上传进度的回调句柄
+
+ @param progress NSProgress
+ @param percent 百分比
+ */
+- (void)updateProgress:(NSProgress *)progress percent:(double)percent;
 
 @end

@@ -19,4 +19,12 @@
     _exception(error, statusCode, httpResponseStatus);
 }
 
+- (void)updateResult:(BOOL)result value:(nullable id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus error:(nullable NSError *)error {
+    _resultHandle(result, value, statusCode, httpResponseStatus, error);
+}
+
+- (void)updateProgress:(NSProgress *)progress percent:(double)percent {
+    _progressHandle(progress, percent);
+}
+
 @end
