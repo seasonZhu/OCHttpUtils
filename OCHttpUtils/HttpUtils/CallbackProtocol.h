@@ -18,7 +18,7 @@
  - UpdateFailure: 上传失败
  */
 typedef NS_ENUM(NSInteger, HttpResponseStatus){
-    ResponseSuccessAndConformYYModel,
+    ResponseSuccessAndConformYYModel = 0,
     ResponseSuccessAndNotConformYYModel,
     ResponseSuccessAndStatusCodeNot200,
     ResponseFailure,
@@ -71,6 +71,7 @@ typedef void(^UpdateProgressHandle)(NSProgress *progress, double percent);
  */
 @protocol CallbackProtocol <NSObject>
 
+@required
 /**
  成功回调句柄
  */

@@ -154,7 +154,7 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater  {
             [callbackApdater handleValue:responseObject statusCode:statusCode responseStatus:ResponseSuccessAndNotConformYYModel];
         }
     }else {
-        [callbackApdater exception:nil statusCode:statusCode responseStatus:ResponseSuccessAndStatusCodeNot200];
+        [callbackApdater handleValue:nil statusCode:statusCode responseStatus:ResponseSuccessAndStatusCodeNot200];
     }
 }
 
@@ -182,7 +182,7 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater  {
  @param error 上传错误
  @param callbackApdater 回调
  */
-+ (void)updateWithClass:(Class)responseClass
++ (void)updateWithClass:(nullable Class)responseClass
         sessionDataTask:(NSURLSessionDataTask *)task
          responseObject:(nullable id)responseObject
                   error:(nullable NSError *)error
@@ -205,6 +205,5 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater  {
         }
     }
 }
-
 
 @end
