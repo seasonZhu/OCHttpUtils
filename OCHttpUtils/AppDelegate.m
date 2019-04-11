@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self checkAppStoreVersion];
     return YES;
 }
 
@@ -47,5 +48,26 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (void)checkAppStoreVersion {
+    NSString *appStoreVersion;
+    NSURL *url = [NSURL URLWithString:@"http://itunes.apple.com/cn/lookup?id=1358989531"];
+    NSString *jsonResponseString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+    
+    if (jsonResponseString!=nil) {
+        NSData *data = [jsonResponseString dataUsingEncoding:NSUTF8StringEncoding];
+        id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSArray *array = json[@"results"];
+        for (NSDictionary *dic in array) {
+            appStoreVersion = [dic valueForKey:@"version"];
+        }
+        NSString *key = @"CFBundleShortVersionString";
+        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+        
+        if ([appStoreVersion compare:currentVersion] > 0) {//要去更新
+            
+        }
+    }
+}
 
 @end
