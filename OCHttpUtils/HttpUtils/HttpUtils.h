@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CallbackProtocol.h"
+@class AFHTTPSessionManager;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,6 +42,36 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater;
     parameters:(nullable NSDictionary *)parameters
  responseClass:(nullable Class)responseClass
 callbackApdater:(id<CallbackProtocol>)callbackApdater;
+
+/**
+ 配置化AFHTTPSessionManager的post请求
+ 
+ @param manager 自定义的AFHTTPSessionManager
+ @param url 网址
+ @param parameters 请求字段
+ @param responseClass 响应的模型类型
+ @param callbackApdater 回调
+ */
++ (void)sessionManager:(AFHTTPSessionManager *)manager
+               postURL:(NSString *)url
+            parameters:(nullable NSDictionary *)parameters
+         responseClass:(nullable Class)responseClass
+       callbackApdater:(id<CallbackProtocol>)callbackApdater;
+
+/**
+ 配置化AFHTTPSessionManager的get请求
+ 
+ @param manager 自定义的AFHTTPSessionManager
+ @param url 网址
+ @param parameters 请求字段
+ @param responseClass 响应的模型类型
+ @param callbackApdater 回调
+ */
++ (void)sessionManager:(AFHTTPSessionManager *)manager
+                getURL:(NSString *)url
+            parameters:(nullable NSDictionary *)parameters
+         responseClass:(nullable Class)responseClass
+       callbackApdater:(id<CallbackProtocol>)callbackApdater;
 
 /**
  上传请求

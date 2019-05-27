@@ -9,6 +9,7 @@
 #import "HttpUtils.h"
 #import <AFNetworking.h>
 #import <YYModel.h>
+#import "AFHTTPSessionManager+Config.h"
 
 @implementation HttpUtils
 
@@ -16,7 +17,7 @@
 
 /**
  post请求
-
+ 
  @param url 网址
  @param parameters 请求字段
  @param responseClass 响应的模型类型
@@ -43,6 +44,41 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater {
 callbackApdater:(id<CallbackProtocol>)callbackApdater {
     [self requst:url method:@"Get" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
 }
+
+/**
+ 配置化AFHTTPSessionManager的post请求
+ 
+ @param manager 自定义的AFHTTPSessionManager
+ @param url 网址
+ @param parameters 请求字段
+ @param responseClass 响应的模型类型
+ @param callbackApdater 回调
+ */
++ (void)sessionManager:(AFHTTPSessionManager *)manager
+               postURL:(NSString *)url
+            parameters:(nullable NSDictionary *)parameters
+         responseClass:(nullable Class)responseClass
+       callbackApdater:(id<CallbackProtocol>)callbackApdater {
+    [self sessionManager:manager requst:url method:@"Post" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
+}
+
+/**
+ 配置化AFHTTPSessionManager的get请求
+ 
+ @param manager 自定义的AFHTTPSessionManager
+ @param url 网址
+ @param parameters 请求字段
+ @param responseClass 响应的模型类型
+ @param callbackApdater 回调
+ */
++ (void)sessionManager:(AFHTTPSessionManager *)manager
+                getURL:(NSString *)url
+            parameters:(nullable NSDictionary *)parameters
+         responseClass:(nullable Class)responseClass
+       callbackApdater:(id<CallbackProtocol>)callbackApdater {
+    [self sessionManager:manager requst:url method:@"Get" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
+}
+
 
 /**
  上传请求
@@ -106,11 +142,7 @@ constructingBodyWithBlock:^(id <AFMultipartFormData> formData) {
  responseClass:(nullable Class)responseClass
 callbackApdater:(id<CallbackProtocol>)callbackApdater  {
 
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.requestSerializer.timeoutInterval = 10;
-    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager shared];
     
     if ([method isEqualToString:@"Post"]) {
         [manager POST:url parameters:parameters progress:nil
@@ -131,6 +163,41 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater  {
     }
 }
 
+/**
+ 配置化AFHTTPSessionManager的请求
+
+ @param manager 自定义的AFHTTPSessionManager
+ @param url 网址
+ @param method 请求方法 @"Post"和@"Get"
+ @param parameters 请求字段
+ @param responseClass 响应的模型类型
+ @param callbackApdater 回调
+ */
++ (void)sessionManager:(AFHTTPSessionManager *)manager
+                requst:(NSString *)url
+                method:(NSString *)method
+            parameters:(nullable NSDictionary *)parameters
+         responseClass:(nullable Class)responseClass
+       callbackApdater:(id<CallbackProtocol>)callbackApdater  {
+    
+    if ([method isEqualToString:@"Post"]) {
+        [manager POST:url parameters:parameters progress:nil
+              success:^(NSURLSessionDataTask *task, id responseObject) {
+                  [self responseSuccessWithClass:responseClass sessionDataTask:task responseObject:responseObject callbackApdater:callbackApdater];
+              }
+              failure:^(NSURLSessionDataTask *task, NSError *error) {
+                  [self responseFailureWithTask:task error:error callbackApdater:callbackApdater];
+              }];
+    } else if ([method isEqualToString:@"Get"]) {
+        [manager GET:url parameters:parameters progress:nil
+             success:^(NSURLSessionDataTask *task, id responseObject) {
+                 [self responseSuccessWithClass:responseClass sessionDataTask:task responseObject:responseObject callbackApdater:callbackApdater];
+             }
+             failure:^(NSURLSessionDataTask *task, NSError *error) {
+                 [self responseFailureWithTask:task error:error callbackApdater:callbackApdater];
+             }];
+    }
+}
 
 /**
  成功的处理

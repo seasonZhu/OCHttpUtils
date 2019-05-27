@@ -38,10 +38,10 @@
     
     [HttpUtils postURL:@"http://sun.topray-media.cn/tz_inf/api/topics" parameters: nil responseClass: [Model class] callbackApdater:callbackApdater];
     
-    [[LzwTouchID sharedInstance] lzw_showTouchIDWithDescribe:@"尝试使用FaceId" BlockState:^(LzwTouchIDState state, NSError * _Nonnull error) {
-        NSLog(@"%lu%@",(unsigned long)state,error);
-        
-    }];
+//    [[LzwTouchID sharedInstance] lzw_showTouchIDWithDescribe:@"尝试使用FaceId" BlockState:^(LzwTouchIDState state, NSError * _Nonnull error) {
+//        NSLog(@"%lu%@",(unsigned long)state,error);
+//        
+//    }];
 }
 
 

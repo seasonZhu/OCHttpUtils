@@ -16,6 +16,7 @@
 		6113333A219AB729004EA7FB /* CallbackApdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 61133339219AB729004EA7FB /* CallbackApdater.m */; };
 		611E435D225483E400B15F67 /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 611E435C225483E400B15F67 /* HttpUtils.m */; };
 		611E43612254935D00B15F67 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 611E43602254935D00B15F67 /* Model.m */; };
+		612FF263229B6F92003B8A5B /* AFHTTPSessionManager+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FF262229B6F92003B8A5B /* AFHTTPSessionManager+Config.m */; };
 		6162B730225ADDA90089F2E8 /* NetworkListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6162B72F225ADDA90089F2E8 /* NetworkListener.m */; };
 		6162B747225DE7ED0089F2E8 /* TouchFaceIdTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6162B746225DE7ED0089F2E8 /* TouchFaceIdTool.m */; };
 		8504FCF88160F520C4AA27F4 /* libPods-OCHttpUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51A763536026936470D9D2A /* libPods-OCHttpUtils.a */; };
@@ -41,6 +42,8 @@
 		611E435C225483E400B15F67 /* HttpUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpUtils.m; sourceTree = "<group>"; };
 		611E435F2254935D00B15F67 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		611E43602254935D00B15F67 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		612FF261229B6F92003B8A5B /* AFHTTPSessionManager+Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AFHTTPSessionManager+Config.h"; sourceTree = "<group>"; };
+		612FF262229B6F92003B8A5B /* AFHTTPSessionManager+Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+Config.m"; sourceTree = "<group>"; };
 		6162B72E225ADDA90089F2E8 /* NetworkListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkListener.h; sourceTree = "<group>"; };
 		6162B72F225ADDA90089F2E8 /* NetworkListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkListener.m; sourceTree = "<group>"; };
 		6162B745225DE7ED0089F2E8 /* TouchFaceIdTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchFaceIdTool.h; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				611E435C225483E400B15F67 /* HttpUtils.m */,
 				6162B72E225ADDA90089F2E8 /* NetworkListener.h */,
 				6162B72F225ADDA90089F2E8 /* NetworkListener.m */,
+				612FF261229B6F92003B8A5B /* AFHTTPSessionManager+Config.h */,
+				612FF262229B6F92003B8A5B /* AFHTTPSessionManager+Config.m */,
 			);
 			path = HttpUtils;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				6162B747225DE7ED0089F2E8 /* TouchFaceIdTool.m in Sources */,
 				611E435D225483E400B15F67 /* HttpUtils.m in Sources */,
 				6113332E219AB30B004EA7FB /* main.m in Sources */,
+				612FF263229B6F92003B8A5B /* AFHTTPSessionManager+Config.m in Sources */,
 				611E43612254935D00B15F67 /* Model.m in Sources */,
 				6113333A219AB729004EA7FB /* CallbackApdater.m in Sources */,
 				61133320219AB308004EA7FB /* AppDelegate.m in Sources */,
