@@ -14,7 +14,6 @@
     _handle(value, statusCode, httpResponseStatus);
 }
 
-
 - (void)exception:(NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus {
     _exception(error, statusCode, httpResponseStatus);
 }

@@ -92,6 +92,10 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater;
     responseClass:(nullable Class)responseClass
   callbackApdater:(id<CallbackProtocol>)callbackApdater;
 
+/**
+ 下载请求
+ */
+
 @end
 
 NS_ASSUME_NONNULL_END

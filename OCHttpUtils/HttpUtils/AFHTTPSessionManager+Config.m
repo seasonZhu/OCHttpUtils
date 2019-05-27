@@ -8,9 +8,9 @@
 
 #import "AFHTTPSessionManager+Config.h"
 
-@implementation AFHTTPSessionManager (Config)
-
 static AFHTTPSessionManager *sessionManager = nil;
+
+@implementation AFHTTPSessionManager (Config)
 
 #pragma mark- 对外方法
 /**
@@ -134,7 +134,85 @@ static AFHTTPSessionManager *sessionManager = nil;
     return manager;
 }
 
-#pragma mark- 对类方法
+#pragma mark- 请求的状态
+
+/**
+ 获取当前的请求状态
+
+ @param URL 请求网址
+ @return 请求状态 注意task为空的时候返回的是cancel
+ */
+- (NSURLSessionTaskState)requestTaskStateWith:(NSString *)URL {
+    NSURLSessionTask *task = [self requestTaskWith:URL];
+    return task == nil ? NSURLSessionTaskStateCanceling : task.state;
+}
+
+/**
+ 通过URL获取当前的NSURLSessionTask
+
+ @param URL 请求网址
+ @return NSURLSessionTask 可能为空
+ */
+- (nullable NSURLSessionTask *)requestTaskWith:(NSString *)URL {
+    AFHTTPSessionManager *manager = self;
+    for (NSURLSessionTask *task in manager.tasks) {
+        BOOL isTask = [task.originalRequest.URL.absoluteString isEqualToString:URL];
+        if (isTask) {
+            return task;
+        }
+        //服务器重定向导致的request变更,这个地方理解不深,可能出现错误
+        isTask = [task.currentRequest.URL.absoluteString isEqualToString:URL];
+        if (isTask) {
+            return task;
+        }
+    }
+    return nil;
+}
+
+#pragma mark- 请求取消/暂停/恢复操作
+
+/**
+ 取消所有的请求,和所有的NSURLSessionTask回调代理
+ */
+- (void)cancelAllTasksAndOperationQueues {
+    AFHTTPSessionManager *manager = self;
+    for (NSURLSessionTask *task in manager.tasks) {
+        [task cancel];
+    }
+    [manager.operationQueue cancelAllOperations];
+}
+
+/**
+ 取消单个请求
+
+ @param URL 请求网址
+ */
+- (void)cancelTaskWithURL:(NSString *)URL {
+    NSURLSessionTask *task = [self requestTaskWith:URL];
+    [task cancel];
+}
+
+/**
+ 暂停单个请求
+ 
+ @param URL 请求网址
+ */
+- (void)suspendTaskWithURL:(NSString *)URL {
+    NSURLSessionTask *task = [self requestTaskWith:URL];
+    [task suspend];
+}
+
+/**
+ 恢复单个请求
+
+ @param URL 请求网址
+ */
+- (void)resumeTaskWithURL:(NSString *)URL {
+    NSURLSessionTask *task = [self requestTaskWith:URL];
+    [task resume];
+}
+
+#pragma mark- 对内方法
 - (BOOL)extractIdentity:(SecIdentityRef*)outIdentity andTrust:(SecTrustRef *)outTrust fromPKCS12Data:(NSData *)inPKCS12Data password:(NSString *)password {
     OSStatus securityError = errSecSuccess;
     //客户端证书密码

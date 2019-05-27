@@ -27,7 +27,7 @@
      parameters:(nullable NSDictionary *)parameters
   responseClass:(nullable Class)responseClass
 callbackApdater:(id<CallbackProtocol>)callbackApdater {
-    [self requst:url method:@"Post" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
+    [self request:url method:@"Post" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
 }
 
 /**
@@ -42,7 +42,7 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater {
     parameters:(nullable NSDictionary *)parameters
  responseClass:(nullable Class)responseClass
 callbackApdater:(id<CallbackProtocol>)callbackApdater {
-    [self requst:url method:@"Get" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
+    [self request:url method:@"Get" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
 }
 
 /**
@@ -59,7 +59,7 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater {
             parameters:(nullable NSDictionary *)parameters
          responseClass:(nullable Class)responseClass
        callbackApdater:(id<CallbackProtocol>)callbackApdater {
-    [self sessionManager:manager requst:url method:@"Post" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
+    [self sessionManager:manager request:url method:@"Post" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
 }
 
 /**
@@ -76,7 +76,7 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater {
             parameters:(nullable NSDictionary *)parameters
          responseClass:(nullable Class)responseClass
        callbackApdater:(id<CallbackProtocol>)callbackApdater {
-    [self sessionManager:manager requst:url method:@"Get" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
+    [self sessionManager:manager request:url method:@"Get" parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
 }
 
 
@@ -98,29 +98,27 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater {
        parameters:(nullable NSDictionary *)parameters
     responseClass:(nullable Class)responseClass
   callbackApdater:(id<CallbackProtocol>)callbackApdater {
-    AFHTTPSessionManager *requestManager = [AFHTTPSessionManager manager];
-    requestManager.requestSerializer.timeoutInterval = 60;
-    [requestManager.requestSerializer setValue:@"multipart/form-data;charset=UTF-8"forHTTPHeaderField:@"Content-Type"];
-    [requestManager.requestSerializer setValue:filename forHTTPHeaderField:@"filename"];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 60;
+    [manager.requestSerializer setValue:@"multipart/form-data;charset=UTF-8"forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:filename forHTTPHeaderField:@"filename"];
     
-    [requestManager POST:url
-              parameters:parameters
-constructingBodyWithBlock:^(id <AFMultipartFormData> formData) {
+    [manager POST:url parameters:parameters constructingBodyWithBlock:^(id <AFMultipartFormData> formData) {
         /**
          *  appendPartWithFileURL   //  指定上传的文件
          *  name                    //  指定在服务器中获取对应文件或文本时的key
          *  fileName                //  指定上传文件的原始文件名
          *  mimeType                //  指定文件的MIME类型
          */
-        [formData appendPartWithFileData:data name:[filename componentsSeparatedByString:@"."].firstObject fileName:filename mimeType:mimeType];
-    }
-                progress:^(NSProgress *progress) {
+                    [formData appendPartWithFileData:data name:[filename componentsSeparatedByString:@"."].firstObject fileName:filename mimeType:mimeType];
+                 }
+         progress:^(NSProgress *progress) {
                     [callbackApdater updateProgress:progress percent:1.0 * progress.completedUnitCount/progress.totalUnitCount];
-    }
-                 success:^(NSURLSessionDataTask *task, id responseObject) {
+                 }
+          success:^(NSURLSessionDataTask *task, id responseObject) {
                      [self updateWithClass:responseClass sessionDataTask:task responseObject:responseObject error:nil callbackApdater:callbackApdater];
-                     
-                 } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                 }
+          failure:^(NSURLSessionDataTask *task, NSError *error) {
                      [self updateWithClass:responseClass sessionDataTask:task responseObject:nil error:error callbackApdater:callbackApdater];
                  }];
 }
@@ -136,31 +134,13 @@ constructingBodyWithBlock:^(id <AFMultipartFormData> formData) {
  @param responseClass 响应的模型类型
  @param callbackApdater 回调
  */
-+ (void)requst:(NSString *)url
++ (void)request:(NSString *)url
         method:(NSString *)method
     parameters:(nullable NSDictionary *)parameters
  responseClass:(nullable Class)responseClass
 callbackApdater:(id<CallbackProtocol>)callbackApdater  {
-
     AFHTTPSessionManager *manager = [AFHTTPSessionManager shared];
-    
-    if ([method isEqualToString:@"Post"]) {
-        [manager POST:url parameters:parameters progress:nil
-              success:^(NSURLSessionDataTask *task, id responseObject) {
-                  [self responseSuccessWithClass:responseClass sessionDataTask:task responseObject:responseObject callbackApdater:callbackApdater];
-              }
-              failure:^(NSURLSessionDataTask *task, NSError *error) {
-                  [self responseFailureWithTask:task error:error callbackApdater:callbackApdater];
-        }];
-    } else if ([method isEqualToString:@"Get"]) {
-        [manager GET:url parameters:parameters progress:nil
-              success:^(NSURLSessionDataTask *task, id responseObject) {
-                  [self responseSuccessWithClass:responseClass sessionDataTask:task responseObject:responseObject callbackApdater:callbackApdater];
-              }
-              failure:^(NSURLSessionDataTask *task, NSError *error) {
-                  [self responseFailureWithTask:task error:error callbackApdater:callbackApdater];
-        }];
-    }
+    [self sessionManager:manager request:url method:method parameters:parameters responseClass:responseClass callbackApdater:callbackApdater];
 }
 
 /**
@@ -174,7 +154,7 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater  {
  @param callbackApdater 回调
  */
 + (void)sessionManager:(AFHTTPSessionManager *)manager
-                requst:(NSString *)url
+                request:(NSString *)url
                 method:(NSString *)method
             parameters:(nullable NSDictionary *)parameters
          responseClass:(nullable Class)responseClass
@@ -271,6 +251,16 @@ callbackApdater:(id<CallbackProtocol>)callbackApdater  {
             [callbackApdater updateResult:NO value:responseObject statusCode:statusCode responseStatus:ResponseSuccessAndStatusCodeNot200 error:error];
         }
     }
+}
+
+/**
+ 网址字符串进行编码编码
+
+ @param URL 网址
+ @return 编码后的网址URL
+ */
++ (nullable NSString *)URLEncoding:(NSString *)URL {
+    return [URL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
 @end

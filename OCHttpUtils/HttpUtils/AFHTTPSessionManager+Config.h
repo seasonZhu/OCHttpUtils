@@ -45,6 +45,52 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (AFHTTPSessionManager *)securityPolicyWithCerPath:(NSString *)path fileName:(NSString *)fileName password:(NSString *)password;
 
+/**
+ 获取当前的请求状态
+ 
+ @param URL 请求网址
+ @return 请求状态 可能为空
+ */
+- (NSURLSessionTaskState)requestTaskStateWith:(NSString *)URL;
+
+/**
+ 通过URL获取当前的NSURLSessionTask
+ 
+ @param URL 请求网址
+ @return NSURLSessionTask 可能为空
+ */
+- (nullable NSURLSessionTask *)requestTaskWith:(NSString *)URL;
+
+#pragma mark- 请求取消/暂停/恢复操作
+
+/**
+ 取消所有的请求,和所有的NSURLSessionTask回调代理
+ */
+- (void)cancelAllTasksAndOperationQueues;
+
+/**
+ 取消单个请求
+ 
+ @param URL 请求网址
+ */
+- (void)cancelTaskWithURL:(NSString *)URL;
+
+/**
+ 暂停单个请求
+ 
+ @param URL 请求网址
+ */
+- (void)suspendTaskWithURL:(NSString *)URL;
+
+
+/**
+ 恢复单个请求
+ 
+ @param URL 请求网址
+ */
+- (void)resumeTaskWithURL:(NSString *)URL;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
