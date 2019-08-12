@@ -28,4 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ OC对泛型的支持实在是太弱了 这样写没有什么问题,但是一编译就出问题
+ */
+@interface BaseResponse<T: NSObject<YYModel> *> : NSObject <YYModel>
+@property (nonatomic , assign) NSInteger code;
+@property (nonatomic, strong) NSArray<T>  *list;
+
+@end
 NS_ASSUME_NONNULL_END
