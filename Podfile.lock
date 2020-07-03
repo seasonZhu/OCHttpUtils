@@ -14,21 +14,26 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
+  - Aspects
   - YYModel
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - YYModel
+  trunk:
+    - Aspects
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 004302cd9c336bd3f6dd4524dd2ccab0990595c6
+PODFILE CHECKSUM: 7ea5b24ed243d7b7bae30149098ff9390811db04
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.3

@@ -6,4 +6,5 @@
 target 'OCHttpUtils' do
  pod 'YYModel'
  pod 'AFNetworking'
+ pod 'Aspects'
 end
