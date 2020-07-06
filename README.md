@@ -1,29 +1,36 @@
 # OCHttpUtils
 
-[![CI Status](https://img.shields.io/travis/seasonZhu/OCHttpUtils.svg?style=flat)](https://travis-ci.org/seasonZhu/OCHttpUtils)
-[![Version](https://img.shields.io/cocoapods/v/OCHttpUtils.svg?style=flat)](https://cocoapods.org/pods/OCHttpUtils)
-[![License](https://img.shields.io/cocoapods/l/OCHttpUtils.svg?style=flat)](https://cocoapods.org/pods/OCHttpUtils)
-[![Platform](https://img.shields.io/cocoapods/p/OCHttpUtils.svg?style=flat)](https://cocoapods.org/pods/OCHttpUtils)
+## 使用
 
-## Example
+使用终端
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+添加该私有库
 
-## Requirements
-
-## Installation
-
-OCHttpUtils is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'OCHttpUtils'
+```
+pod repo add SeasonSpecs https://github.com/seasonZhu/SeasonSpecs.git
 ```
 
-## Author
+检查添加是否成功
 
-seasonZhu, zhujilong2007@sina.com
+```
+pod repo list
+```
 
-## License
+然后进行pod更新
 
-OCHttpUtils is available under the MIT license. See the LICENSE file for more info.
+```
+pod repo update
+```
+
+在项目中的Podfile添加如下的源
+
+```
+source 'https://github.com/seasonZhu/SeasonSpecs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+```
+
+如下面这样
+
+```
+pod 'OCHttpUtils'
+```
