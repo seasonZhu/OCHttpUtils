@@ -10,19 +10,22 @@
 
 @implementation CallbackApdater
 
-- (void)handleValue:(id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus {
+- (void)handleValue:(nullable id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus {
     _handle(value, statusCode, httpResponseStatus);
 }
 
-- (void)exception:(NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus {
+- (void)exception:(nullable NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus {
     _exception(error, statusCode, httpResponseStatus);
 }
 
-- (void)updateResult:(BOOL)result value:(nullable id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus error:(nullable NSError *)error {
+- (void)updateResult:(BOOL)result value:(nullable id)value
+          statusCode:(NSInteger)statusCode
+      responseStatus:(HttpResponseStatus)httpResponseStatus
+               error:(nullable NSError *)error {
     _resultHandle(result, value, statusCode, httpResponseStatus, error);
 }
 
-- (void)updateProgress:(NSProgress *)progress percent:(double)percent {
+- (void)updateProgress:(nullable NSProgress *)progress percent:(double)percent {
     _progressHandle(progress, percent);
 }
 

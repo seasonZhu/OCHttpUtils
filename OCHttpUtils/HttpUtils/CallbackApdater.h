@@ -14,23 +14,23 @@
 /**
  成功回调句柄
  */
-@property(nonatomic,copy) CallbackHandle handle;
+@property(nonatomic ,copy ,nullable) CallbackHandle handle;
 
 
 /**
  失败回调句柄
  */
-@property(nonatomic,copy) CallbackException exception;
+@property(nonatomic ,copy ,nullable) CallbackException exception;
 
 /**
  上传回调句柄
  */
-@property (nonatomic, copy) UpdateResultHandle resultHandle;
+@property (nonatomic, copy ,nullable) UpdateResultHandle resultHandle;
 
 /**
  上传进度句柄
  */
-@property (nonatomic, copy) UpdateProgressHandle progressHandle;
+@property (nonatomic, copy, nullable) UpdateProgressHandle progressHandle;
 
 /**
  成功的回调句柄
@@ -39,7 +39,7 @@
  @param statusCode 响应的code
  @param httpResponseStatus 响应状态
  */
-- (void)handleValue:(id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
+- (void)handleValue:(nullable id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
 
 /**
  失败的回调句柄
@@ -48,7 +48,7 @@
  @param statusCode 响应的code
  @param httpResponseStatus 响应状态
  */
-- (void)exception:(NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
+- (void)exception:(nullable NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
 
 /**
  上传结果的回调句柄
@@ -59,7 +59,11 @@
  @param httpResponseStatus 响应状态
  @param error 上传错误
  */
-- (void)updateResult:(BOOL)result value:(nullable id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus error:(nullable NSError *)error;
+- (void)updateResult:(BOOL)result
+               value:(nullable id)value
+          statusCode:(NSInteger)statusCode
+      responseStatus:(HttpResponseStatus)httpResponseStatus
+               error:(nullable NSError *)error;
 
 /**
  上传进度的回调句柄
@@ -67,7 +71,7 @@
  @param progress NSProgress
  @param percent 百分比
  */
-- (void)updateProgress:(NSProgress *)progress percent:(double)percent;
+- (void)updateProgress:(nullable NSProgress *)progress percent:(double)percent;
 @end
 
 

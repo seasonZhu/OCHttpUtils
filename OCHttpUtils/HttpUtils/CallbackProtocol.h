@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, HttpResponseStatus){
  @param statusCode 响应码
  @param httpResponseStatus 响应状态
  */
-typedef void(^CallbackHandle)(id value, NSInteger statusCode, HttpResponseStatus httpResponseStatus);
+typedef void(^CallbackHandle)(id _Nullable value, NSInteger statusCode, HttpResponseStatus httpResponseStatus);
 
 /**
  失败的回调
@@ -44,7 +44,7 @@ typedef void(^CallbackHandle)(id value, NSInteger statusCode, HttpResponseStatus
  @param statusCode 响应码
  @param httpResponseStatus 响应状态
  */
-typedef void(^CallbackException)(NSError *error, NSInteger statusCode, HttpResponseStatus httpResponseStatus);
+typedef void(^CallbackException)(NSError * _Nullable error, NSInteger statusCode, HttpResponseStatus httpResponseStatus);
 
 /**
  上传结果的回调
@@ -55,7 +55,7 @@ typedef void(^CallbackException)(NSError *error, NSInteger statusCode, HttpRespo
  @param httpResponseStatus 响应状态
  @param error 上传错误,先判断result,最后关注error
  */
-typedef void(^UpdateResultHandle)(BOOL result, id value, NSInteger statusCode, HttpResponseStatus httpResponseStatus, NSError *error);
+typedef void(^UpdateResultHandle)(BOOL result, id _Nullable value, NSInteger statusCode, HttpResponseStatus httpResponseStatus, NSError * _Nullable error);
 
 
 /**
@@ -64,7 +64,7 @@ typedef void(^UpdateResultHandle)(BOOL result, id value, NSInteger statusCode, H
  @param progress NSProgress
  @param percent 上传百分比
  */
-typedef void(^UpdateProgressHandle)(NSProgress *progress, double percent);
+typedef void(^UpdateProgressHandle)(NSProgress * _Nullable progress, double percent);
 
 /**
  回调协议
@@ -75,25 +75,25 @@ typedef void(^UpdateProgressHandle)(NSProgress *progress, double percent);
 /**
  成功回调句柄
  */
-@property(nonatomic,copy) CallbackHandle handle;
+@property(nonatomic ,copy, nullable) CallbackHandle handle;
 
 
 /**
  失败回调句柄
  */
-@property(nonatomic,copy) CallbackException exception;
+@property(nonatomic ,copy, nullable) CallbackException exception;
 
 
 /**
  上传回调句柄
  */
-@property (nonatomic, copy) UpdateResultHandle resultHandle;
+@property(nonatomic ,copy, nullable) UpdateResultHandle resultHandle;
 
 
 /**
  上传进度句柄
  */
-@property (nonatomic, copy) UpdateProgressHandle progressHandle;
+@property(nonatomic ,copy, nullable) UpdateProgressHandle progressHandle;
 
 /**
  成功的回调句柄
@@ -102,7 +102,7 @@ typedef void(^UpdateProgressHandle)(NSProgress *progress, double percent);
  @param statusCode 响应的code
  @param httpResponseStatus 响应状态
  */
-- (void)handleValue:(id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
+- (void)handleValue:(nullable id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
 
 /**
  失败的回调句柄
@@ -111,7 +111,7 @@ typedef void(^UpdateProgressHandle)(NSProgress *progress, double percent);
  @param statusCode 响应的code
  @param httpResponseStatus 响应状态
  */
-- (void)exception:(NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
+- (void)exception:(nullable NSError *)error statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus;
 
 
 /**
@@ -123,7 +123,7 @@ typedef void(^UpdateProgressHandle)(NSProgress *progress, double percent);
  @param httpResponseStatus 响应状态
  @param error 上传错误
  */
-- (void)updateResult:(BOOL)result value:(id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus error:(NSError *)error;
+- (void)updateResult:(BOOL)result value:(nullable id)value statusCode:(NSInteger)statusCode responseStatus:(HttpResponseStatus)httpResponseStatus error:(nullable NSError *)error;
 
 
 /**
@@ -132,6 +132,6 @@ typedef void(^UpdateProgressHandle)(NSProgress *progress, double percent);
  @param progress NSProgress
  @param percent 百分比
  */
-- (void)updateProgress:(NSProgress *)progress percent:(double)percent;
+- (void)updateProgress:(nullable NSProgress *)progress percent:(double)percent;
 
 @end
