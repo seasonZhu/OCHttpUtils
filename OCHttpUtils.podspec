@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OCHttpUtils'
-  s.version          = '0.1.0'
+  s.version          = '0.1.0.Binary'
   s.summary          = 'ANFNetworking与YYModel的封装.'
 
 # This description is used to generate tags and improve search results.
@@ -29,8 +29,21 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
-
-  s.source_files = 'OCHttpUtils/Classes/**/*'
+  
+  if s.version.to_s.include?'Binary'
+      puts '-------------------------------------------------------------------'
+      puts 'Notice:OCHttpUtils is binary now'
+      puts '-------------------------------------------------------------------'
+      s.prepare_command = '/bin/bash build_lib.sh'
+      s.source_files = 'Pod/Products/include/**'
+      s.ios.vendored_libraries = 'Pod/Products/lib/*.a'
+      s.public_header_files = 'Pod/Products/include/*.h'
+    else
+      puts '-------------------------------------------------------------------'
+      puts 'Notice:OCHttpUtils is source code now'
+      puts '-------------------------------------------------------------------'
+      s.source_files = 'OCHttpUtils/Classes/**/*'
+    end
   
   # s.resource_bundles = {
   #   'OCHttpUtils' => ['OCHttpUtils/Assets/*.png']

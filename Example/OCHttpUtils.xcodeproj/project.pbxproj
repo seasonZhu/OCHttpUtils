@@ -22,6 +22,20 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		61E87FC824B2D03900632163 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E87FC624B2D03800632163 /* Model.m */; };
 		61E87FCC24B2D33800632163 /* TouchFaceIdTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E87FCA24B2D33800632163 /* TouchFaceIdTool.m */; };
+		61E8803224B5999B00632163 /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E8802A24B5999B00632163 /* HttpUtils.m */; };
+		61E8803324B5999B00632163 /* AFHTTPSessionManager+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E8802D24B5999B00632163 /* AFHTTPSessionManager+Config.m */; };
+		61E8803424B5999B00632163 /* CallbackApdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E8802E24B5999B00632163 /* CallbackApdater.m */; };
+		61E8803524B5999B00632163 /* NetworkListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E8803124B5999B00632163 /* NetworkListener.m */; };
+		61E8803724B59A0800632163 /* OCHttpUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E8802C24B5999B00632163 /* OCHttpUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61E8803824B59A2A00632163 /* AFHTTPSessionManager+Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E8802824B5999B00632163 /* AFHTTPSessionManager+Config.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61E8803924B59A2A00632163 /* AFHTTPSessionManager+Config.m in Headers */ = {isa = PBXBuildFile; fileRef = 61E8802D24B5999B00632163 /* AFHTTPSessionManager+Config.m */; settings = {ATTRIBUTES = (Private, ); }; };
+		61E8803A24B59A2A00632163 /* CallbackApdater.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E8802924B5999B00632163 /* CallbackApdater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61E8803B24B59A2A00632163 /* CallbackApdater.m in Headers */ = {isa = PBXBuildFile; fileRef = 61E8802E24B5999B00632163 /* CallbackApdater.m */; settings = {ATTRIBUTES = (Private, ); }; };
+		61E8803C24B59A2A00632163 /* CallbackProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E8802F24B5999B00632163 /* CallbackProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61E8803D24B59A2A00632163 /* HttpUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E8803024B5999B00632163 /* HttpUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61E8803E24B59A2A00632163 /* HttpUtils.m in Headers */ = {isa = PBXBuildFile; fileRef = 61E8802A24B5999B00632163 /* HttpUtils.m */; settings = {ATTRIBUTES = (Private, ); }; };
+		61E8803F24B59A2A00632163 /* NetworkListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E8802B24B5999B00632163 /* NetworkListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61E8804024B59A2A00632163 /* NetworkListener.m in Headers */ = {isa = PBXBuildFile; fileRef = 61E8803124B5999B00632163 /* NetworkListener.m */; settings = {ATTRIBUTES = (Private, ); }; };
 		6BA2DEE7674BED8BE195EE5F /* Pods_OCHttpUtils_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7843089C1C03AAB34D91639A /* Pods_OCHttpUtils_Example.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
@@ -37,6 +51,18 @@
 			remoteInfo = OCHttpUtils;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		61E8801F24B5994A00632163 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2957A1DAD4C8F49037D4D339 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -63,6 +89,18 @@
 		61E87FC724B2D03900632163 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		61E87FCA24B2D33800632163 /* TouchFaceIdTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchFaceIdTool.m; sourceTree = "<group>"; };
 		61E87FCB24B2D33800632163 /* TouchFaceIdTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchFaceIdTool.h; sourceTree = "<group>"; };
+		61E8802124B5994A00632163 /* libOCHttpUtilsLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOCHttpUtilsLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		61E8802824B5999B00632163 /* AFHTTPSessionManager+Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AFHTTPSessionManager+Config.h"; path = "../../OCHttpUtils/Classes/AFHTTPSessionManager+Config.h"; sourceTree = "<group>"; };
+		61E8802924B5999B00632163 /* CallbackApdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallbackApdater.h; path = ../../OCHttpUtils/Classes/CallbackApdater.h; sourceTree = "<group>"; };
+		61E8802A24B5999B00632163 /* HttpUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpUtils.m; path = ../../OCHttpUtils/Classes/HttpUtils.m; sourceTree = "<group>"; };
+		61E8802B24B5999B00632163 /* NetworkListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkListener.h; path = ../../OCHttpUtils/Classes/NetworkListener.h; sourceTree = "<group>"; };
+		61E8802C24B5999B00632163 /* OCHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCHttpUtils.h; path = ../../OCHttpUtils/Classes/OCHttpUtils.h; sourceTree = "<group>"; };
+		61E8802D24B5999B00632163 /* AFHTTPSessionManager+Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPSessionManager+Config.m"; path = "../../OCHttpUtils/Classes/AFHTTPSessionManager+Config.m"; sourceTree = "<group>"; };
+		61E8802E24B5999B00632163 /* CallbackApdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallbackApdater.m; path = ../../OCHttpUtils/Classes/CallbackApdater.m; sourceTree = "<group>"; };
+		61E8802F24B5999B00632163 /* CallbackProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallbackProtocol.h; path = ../../OCHttpUtils/Classes/CallbackProtocol.h; sourceTree = "<group>"; };
+		61E8803024B5999B00632163 /* HttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpUtils.h; path = ../../OCHttpUtils/Classes/HttpUtils.h; sourceTree = "<group>"; };
+		61E8803124B5999B00632163 /* NetworkListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkListener.m; path = ../../OCHttpUtils/Classes/NetworkListener.m; sourceTree = "<group>"; };
+		61E8804124B59CB000632163 /* placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = placeholder.h; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72922FE3B869B4AF04317968 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7843089C1C03AAB34D91639A /* Pods_OCHttpUtils_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OCHttpUtils_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +136,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		61E8801E24B5994A00632163 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -118,6 +163,7 @@
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for OCHttpUtils */,
 				6003F5B5195388D20070C39A /* Tests */,
+				61E8802224B5994A00632163 /* OCHttpUtilsLib */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				3D577B55071461FC22C582B1 /* Pods */,
@@ -129,6 +175,7 @@
 			children = (
 				6003F58A195388D20070C39A /* OCHttpUtils_Example.app */,
 				6003F5AE195388D20070C39A /* OCHttpUtils_Tests.xctest */,
+				61E8802124B5994A00632163 /* libOCHttpUtilsLib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,7 +253,45 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		61E8802224B5994A00632163 /* OCHttpUtilsLib */ = {
+			isa = PBXGroup;
+			children = (
+				61E8802824B5999B00632163 /* AFHTTPSessionManager+Config.h */,
+				61E8802D24B5999B00632163 /* AFHTTPSessionManager+Config.m */,
+				61E8802924B5999B00632163 /* CallbackApdater.h */,
+				61E8802E24B5999B00632163 /* CallbackApdater.m */,
+				61E8802F24B5999B00632163 /* CallbackProtocol.h */,
+				61E8803024B5999B00632163 /* HttpUtils.h */,
+				61E8802A24B5999B00632163 /* HttpUtils.m */,
+				61E8802B24B5999B00632163 /* NetworkListener.h */,
+				61E8803124B5999B00632163 /* NetworkListener.m */,
+				61E8802C24B5999B00632163 /* OCHttpUtils.h */,
+				61E8804124B59CB000632163 /* placeholder.h */,
+			);
+			path = OCHttpUtilsLib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		61E8803624B599D600632163 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61E8803724B59A0800632163 /* OCHttpUtils.h in Headers */,
+				61E8803824B59A2A00632163 /* AFHTTPSessionManager+Config.h in Headers */,
+				61E8803C24B59A2A00632163 /* CallbackProtocol.h in Headers */,
+				61E8803A24B59A2A00632163 /* CallbackApdater.h in Headers */,
+				61E8803D24B59A2A00632163 /* HttpUtils.h in Headers */,
+				61E8803F24B59A2A00632163 /* NetworkListener.h in Headers */,
+				61E8803924B59A2A00632163 /* AFHTTPSessionManager+Config.m in Headers */,
+				61E8803B24B59A2A00632163 /* CallbackApdater.m in Headers */,
+				61E8803E24B59A2A00632163 /* HttpUtils.m in Headers */,
+				61E8804024B59A2A00632163 /* NetworkListener.m in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		6003F589195388D20070C39A /* OCHttpUtils_Example */ = {
@@ -247,6 +332,24 @@
 			productReference = 6003F5AE195388D20070C39A /* OCHttpUtils_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		61E8802024B5994A00632163 /* OCHttpUtilsLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61E8802724B5994A00632163 /* Build configuration list for PBXNativeTarget "OCHttpUtilsLib" */;
+			buildPhases = (
+				61E8803624B599D600632163 /* Headers */,
+				61E8801D24B5994A00632163 /* Sources */,
+				61E8801E24B5994A00632163 /* Frameworks */,
+				61E8801F24B5994A00632163 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCHttpUtilsLib;
+			productName = OCHttpUtilsLib;
+			productReference = 61E8802124B5994A00632163 /* libOCHttpUtilsLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -254,11 +357,17 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ZD;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = seasonZhu;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
+					};
+					61E8802024B5994A00632163 = {
+						CreatedOnToolsVersion = 11.5;
+						DevelopmentTeam = B6Q5RKSB5N;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -278,6 +387,7 @@
 			targets = (
 				6003F589195388D20070C39A /* OCHttpUtils_Example */,
 				6003F5AD195388D20070C39A /* OCHttpUtils_Tests */,
+				61E8802024B5994A00632163 /* OCHttpUtilsLib */,
 			);
 		};
 /* End PBXProject section */
@@ -393,6 +503,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61E8801D24B5994A00632163 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61E8803524B5999B00632163 /* NetworkListener.m in Sources */,
+				61E8803224B5999B00632163 /* HttpUtils.m in Sources */,
+				61E8803424B5999B00632163 /* CallbackApdater.m in Sources */,
+				61E8803324B5999B00632163 /* AFHTTPSessionManager+Config.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +708,84 @@
 			};
 			name = Release;
 		};
+		61E8802524B5994A00632163 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B6Q5RKSB5N;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		61E8802624B5994A00632163 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = B6Q5RKSB5N;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -613,6 +812,15 @@
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,
 				6003F5C4195388D20070C39A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61E8802724B5994A00632163 /* Build configuration list for PBXNativeTarget "OCHttpUtilsLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61E8802524B5994A00632163 /* Debug */,
+				61E8802624B5994A00632163 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
