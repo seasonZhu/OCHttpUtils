@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self normalRequest];
+    //[self normalRequest];
     [self genericRequest];
 }
 
@@ -48,10 +48,10 @@
     CallbackApdater *callbackApdater = [CallbackApdater new];
     
     callbackApdater.handle = ^(id value, NSInteger statusCode, HttpResponseStatus httpResponseStatus) {
-        BaseResponse<ListItem *> *model = value;
+        BaseResponse<ListItem *> *response = value;
         NSLog(@"httpResponseStatus: %ld", (long)httpResponseStatus);
         NSLog(@"statusCode: %ld", (long)statusCode);
-        NSLog(@"model: %@", model);
+        NSLog(@"model: %@", response);
     };
     
     callbackApdater.exception = ^(NSError *error, NSInteger statusCode, HttpResponseStatus httpResponseStatus) {
