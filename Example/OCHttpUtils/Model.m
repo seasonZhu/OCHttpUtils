@@ -24,3 +24,7 @@
              };
 }
 @end
+
+@implementation BaseResponse
+
+@end
