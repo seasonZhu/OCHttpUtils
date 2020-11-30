@@ -20,6 +20,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		618ECDF02574856600540819 /* Mapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 618ECDEF2574856600540819 /* Mapper.m */; };
 		61E87FC824B2D03900632163 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E87FC624B2D03800632163 /* Model.m */; };
 		61E87FCC24B2D33800632163 /* TouchFaceIdTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E87FCA24B2D33800632163 /* TouchFaceIdTool.m */; };
 		61E8803224B5999B00632163 /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E8802A24B5999B00632163 /* HttpUtils.m */; };
@@ -85,6 +86,8 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		618ECDEE2574856600540819 /* Mapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mapper.h; sourceTree = "<group>"; };
+		618ECDEF2574856600540819 /* Mapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mapper.m; sourceTree = "<group>"; };
 		61E87FC624B2D03800632163 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		61E87FC724B2D03900632163 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		61E87FCA24B2D33800632163 /* TouchFaceIdTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchFaceIdTool.m; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				61E87FCA24B2D33800632163 /* TouchFaceIdTool.m */,
 				61E87FC724B2D03900632163 /* Model.h */,
 				61E87FC624B2D03800632163 /* Model.m */,
+				618ECDEE2574856600540819 /* Mapper.h */,
+				618ECDEF2574856600540819 /* Mapper.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -497,6 +502,7 @@
 				6003F5A7195388D20070C39A /* ZDViewController.m in Sources */,
 				61E87FCC24B2D33800632163 /* TouchFaceIdTool.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				618ECDF02574856600540819 /* Mapper.m in Sources */,
 				61E87FC824B2D03900632163 /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

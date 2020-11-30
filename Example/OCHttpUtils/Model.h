@@ -30,8 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface BaseResponse<ObjectType: id<YYModel>> : NSObject <YYModel>
-@property (nonatomic , assign) NSInteger code;
+@property (nonatomic, strong) NSNumber *code;
 @property (nonatomic, strong) NSArray<ObjectType>  *list;
-
 @end
 NS_ASSUME_NONNULL_END

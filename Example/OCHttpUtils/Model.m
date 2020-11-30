@@ -25,6 +25,17 @@
 }
 @end
 
+@interface BaseResponse ()
+
+@end
+
 @implementation BaseResponse
+
+/// 就目前这个情况看,在OC中使用的泛型想要配合YYModel是一件非常困难的事情
+//+ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {
+//    return @{
+//             @"list": [ObjectType class]
+//             };
+//}
 
 @end
