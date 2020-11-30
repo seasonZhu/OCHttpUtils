@@ -10,6 +10,8 @@
 #import <YYModel/YYModel.h>
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark- 一般思路
+
 @interface ListItem: NSObject<YYModel>
 @property (nonatomic , copy) NSString *topicTittle;
 @property (nonatomic , copy) NSString *upTime;
@@ -28,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+#pragma mark- 泛型思路
 
 @interface BaseResponse<ObjectType: id<YYModel>> : NSObject <YYModel>
 @property (nonatomic, strong) NSNumber *code;
@@ -40,6 +43,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *code;
 @property (nonatomic, copy) NSString *msg;
 @property (nonatomic, strong, readonly) NSArray<T> *data;
+
+@end
+
+#pragma mark- 继承思路
+
+@interface BasicResponse: NSObject <YYModel>
+
+@property (nonatomic, strong) NSNumber *code;
+@property (nonatomic, copy) NSString *msg;
+@property (nonatomic, strong) id data;
+
+@end
+
+@interface OneResponse : BasicResponse
+
+@property (nonatomic, strong) NSArray <ListItem *>  *data;
 
 @end
 

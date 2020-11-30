@@ -71,3 +71,28 @@
 }
 
 @end
+
+
+@implementation BasicResponse
+
+//@dynamic data;
+
+@end
+
+@implementation OneResponse
+
+@dynamic data;
+
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
+    return @{
+             @"data": @"list"
+             };
+}
+
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {
+    return @{
+             @"data": [ListItem class]
+             };
+}
+
+@end

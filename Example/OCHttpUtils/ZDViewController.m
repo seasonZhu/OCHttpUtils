@@ -22,6 +22,7 @@
     [super viewDidLoad];
     [self normalRequest];
     [self genericRequest];
+    [self inheritRequest];
 }
 
 - (void)normalRequest {
@@ -61,5 +62,24 @@
     };
     
     [HttpUtils postURL:@"http://sun.topray-media.cn/tz_inf/api/topics" parameters: nil headers: nil responseClass: [BaseResponse<ListItem *> class] callbackApdater:callbackApdater];
+}
+
+- (void)inheritRequest {
+    CallbackApdater *callbackApdater = [CallbackApdater new];
+    
+    callbackApdater.handle = ^(id value, NSInteger statusCode, HttpResponseStatus httpResponseStatus) {
+        OneResponse *model = value;
+        NSLog(@"httpResponseStatus: %ld", (long)httpResponseStatus);
+        NSLog(@"statusCode: %ld", (long)statusCode);
+        NSLog(@"model: %@", model);
+    };
+    
+    callbackApdater.exception = ^(NSError *error, NSInteger statusCode, HttpResponseStatus httpResponseStatus) {
+        NSLog(@"httpResponseStatus: %ld", (long)httpResponseStatus);
+        NSLog(@"statusCode: %ld", (long)statusCode);
+        NSLog(@"error: %@", error);
+    };
+    
+    [HttpUtils postURL:@"http://sun.topray-media.cn/tz_inf/api/topics" parameters: nil headers: nil responseClass: [OneResponse class] callbackApdater:callbackApdater];
 }
 @end
