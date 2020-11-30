@@ -39,3 +39,35 @@
 //}
 
 @end
+
+@interface Response ()
+
+@property (nonatomic, strong) NSArray<id>* data;
+
+/// 类属性
+@property (nonatomic, strong, class) id classData;
+
+@end
+
+@implementation Response
+
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
+    return @{
+             @"data": @"list"
+             };
+}
+
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {
+    Response *response = [Response new];
+    
+    if ([response.data isKindOfClass:[NSArray<ListItem *> class]]) {
+        return @{
+                 @"data": [ListItem class]
+                 };
+    }
+    
+    return nil;
+
+}
+
+@end

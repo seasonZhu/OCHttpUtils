@@ -33,4 +33,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *code;
 @property (nonatomic, strong) NSArray<ObjectType>  *list;
 @end
+
+
+@interface Response<T: id<YYModel>> : NSObject <YYModel>
+
+@property (nonatomic, strong) NSNumber *code;
+@property (nonatomic, copy) NSString *msg;
+@property (nonatomic, strong, readonly) NSArray<T> *data;
+
+@end
+
 NS_ASSUME_NONNULL_END
