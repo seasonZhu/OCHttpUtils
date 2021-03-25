@@ -46,7 +46,7 @@ platform :ios do
   push_git_tags
 
   # 4. pod spec lint
-  pod_lib_lint(allow_warnings: true)
+  pod_lib_lint(sources: ["https://github.com/seasonZhu/SeasonSpecs"], allow_warnings: true)
   #    pod repo push XXXX xxx.podspec
   pod_push(path: "OCHttpUtils.podspec", repo: "SeasonSpecs", allow_warnings: true)
 
