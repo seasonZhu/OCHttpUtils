@@ -14,5 +14,6 @@
 #import "HttpUtils.h"
 #import "NetworkListener.h"
 #import <YYModel/YYModel.h>
+#import <AFNetworking/AFNetworking.h>
 
 #endif /* OCHttpUtils_h */

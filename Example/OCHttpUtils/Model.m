@@ -24,3 +24,13 @@
              };
 }
 @end
+
+@implementation BaseResponse
+
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {
+    return @{
+             @"list": [NSObject<YYModel> class]
+             };
+}
+
+@end

@@ -257,6 +257,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = seasonZhu;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = B6Q5RKSB5N;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -512,6 +515,7 @@
 			baseConfigurationReference = DD0142B29E664726305EE04F /* Pods-OCHttpUtils_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B6Q5RKSB5N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OCHttpUtils/OCHttpUtils-Prefix.pch";
 				INFOPLIST_FILE = "OCHttpUtils/OCHttpUtils-Info.plist";
@@ -529,6 +533,7 @@
 			baseConfigurationReference = EFA6527C3748AA2F3223267F /* Pods-OCHttpUtils_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B6Q5RKSB5N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OCHttpUtils/OCHttpUtils-Prefix.pch";
 				INFOPLIST_FILE = "OCHttpUtils/OCHttpUtils-Info.plist";
