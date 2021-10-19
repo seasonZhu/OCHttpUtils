@@ -36,4 +36,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray<T>  *list;
 
 @end
+
+@interface Response : NSObject <YYModel>
+@property (nonatomic , assign) NSInteger code;
+@property (nonatomic, strong) id list;
+
+- (nullable id)transformToClass:(nullable Class)toClass;
+
+- (NSArray *)transformToArayyWithClass:(Class)toClass;
+@end
 NS_ASSUME_NONNULL_END

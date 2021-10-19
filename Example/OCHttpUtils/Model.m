@@ -7,6 +7,7 @@
 //
 
 #import "Model.h"
+#import "NSArray+Map.h"
 
 @implementation ListItem
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
@@ -31,6 +32,40 @@
     return @{
              @"list": [NSObject<YYModel> class]
              };
+}
+
+@end
+
+@implementation Response
+
+- (id)transformToClass:(Class)toClass {
+    if ([toClass conformsToProtocol:@protocol(YYModel)]) {
+        id value = [toClass yy_modelWithJSON: self.list];
+        return value;
+    }else {
+        return nil;
+    }
+}
+
+- (NSArray *)transformToArayyWithClass:(Class)toClass {
+    if (![toClass conformsToProtocol:@protocol(YYModel)]) {
+        return nil;
+    }
+    
+    NSArray<id> *array = (NSArray<id>* )self.list;
+    if (array == nil) {
+        return nil;
+    }
+    
+    if ([toClass conformsToProtocol:@protocol(YYModel)]) {
+        NSArray *newArray = [array map:^id _Nonnull(id _Nonnull element) {
+            id value = [toClass yy_modelWithJSON: element];
+            return  value;
+        }];
+        return newArray;
+    }else {
+        return nil;
+    }
 }
 
 @end

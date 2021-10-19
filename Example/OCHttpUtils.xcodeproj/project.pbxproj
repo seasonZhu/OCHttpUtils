@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005F7604271E9FCC001DA0A5 /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 005F7603271E9FCC001DA0A5 /* NSArray+Map.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		005F7602271E9FCC001DA0A5 /* NSArray+Map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; };
+		005F7603271E9FCC001DA0A5 /* NSArray+Map.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
 		2957A1DAD4C8F49037D4D339 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* OCHttpUtils_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCHttpUtils_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,6 +104,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		005F7606271EAE13001DA0A5 /* JSONToModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JSONToModel;
+			sourceTree = "<group>";
+		};
 		3D577B55071461FC22C582B1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +159,7 @@
 		6003F593195388D20070C39A /* Example for OCHttpUtils */ = {
 			isa = PBXGroup;
 			children = (
+				005F7606271EAE13001DA0A5 /* JSONToModel */,
 				6003F59C195388D20070C39A /* ZDAppDelegate.h */,
 				6003F59D195388D20070C39A /* ZDAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -158,6 +169,8 @@
 				61E87FCA24B2D33800632163 /* TouchFaceIdTool.m */,
 				61E87FC724B2D03900632163 /* Model.h */,
 				61E87FC624B2D03800632163 /* Model.m */,
+				005F7602271E9FCC001DA0A5 /* NSArray+Map.h */,
+				005F7603271E9FCC001DA0A5 /* NSArray+Map.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -386,6 +399,7 @@
 				6003F59E195388D20070C39A /* ZDAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ZDViewController.m in Sources */,
 				61E87FCC24B2D33800632163 /* TouchFaceIdTool.m in Sources */,
+				005F7604271E9FCC001DA0A5 /* NSArray+Map.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				61E87FC824B2D03900632163 /* Model.m in Sources */,
 			);

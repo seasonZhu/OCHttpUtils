@@ -38,7 +38,9 @@
     
     [HttpUtils postURL:@"http://sun.topray-media.cn/tz_inf/api/topics" parameters: nil headers: nil responseClass: [Model class] callbackApdater:callbackApdater];
     
-    [self request];
+    //[self request];
+    [self idRequet];
+    [self requestAndReponse];
 }
 
 - (void)request {
@@ -57,6 +59,50 @@
 //            NSString *topicDesc = first.topicDesc;
 //            
 //            NSLog(@"topicDesc: %@",topicDesc);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+}
+
+- (void)idRequet {
+    CallbackApdater *callbackApdater = [CallbackApdater new];
+    
+    callbackApdater.handle = ^(id value, NSInteger statusCode, HttpResponseStatus httpResponseStatus) {
+        Response *response = (Response *)value;
+        NSLog(@"httpResponseStatus: %ld", (long)httpResponseStatus);
+        NSLog(@"statusCode: %ld", (long)statusCode);
+        NSLog(@"response: %@", response);
+        
+        if (response.code == 0) {
+            NSArray<ListItem *> *list = [response transformToArayyWithClass:[ListItem class]];
+            
+            NSLog(@"list: %@", list);
+        }
+    };
+    
+    callbackApdater.exception = ^(NSError *error, NSInteger statusCode, HttpResponseStatus httpResponseStatus) {
+        NSLog(@"httpResponseStatus: %ld", (long)httpResponseStatus);
+        NSLog(@"statusCode: %ld", (long)statusCode);
+        NSLog(@"error: %@", error);
+    };
+    
+    [HttpUtils postURL:@"http://sun.topray-media.cn/tz_inf/api/topics" parameters: nil headers: nil responseClass: [Response class] callbackApdater:callbackApdater];
+}
+
+- (void)requestAndReponse {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [manager POST:@"http://sun.topray-media.cn/tz_inf/api/topics" parameters:nil headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            Response* response = [Response yy_modelWithJSON:responseObject];
+            NSLog(@"response: %@", response);
+            
+            if (response.code == 0) {
+                NSArray *list = [response transformToArayyWithClass:[ListItem class]];
+                
+                NSLog(@"list: %@", list);
+            }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
         }];
