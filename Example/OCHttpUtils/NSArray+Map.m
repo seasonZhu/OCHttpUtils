@@ -22,7 +22,7 @@
         id new = handle(obj);
         [arr addObject:new];
     }
-    return arr.copy;
+    return [NSArray arrayWithArray:arr];
 }
 
 @end

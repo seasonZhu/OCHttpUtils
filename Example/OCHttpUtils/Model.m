@@ -38,7 +38,7 @@
 
 @implementation Response
 
-- (id)transformToClass:(Class)toClass {
+- (nullable id)jsonToModelWithClass:(nonnull Class)toClass {
     if ([toClass conformsToProtocol:@protocol(YYModel)]) {
         id value = [toClass yy_modelWithJSON: self.list];
         return value;
@@ -47,7 +47,7 @@
     }
 }
 
-- (NSArray *)transformToArayyWithClass:(Class)toClass {
+- (nullable NSArray *)jsonToArayyModelsWithClass:(nonnull Class)toClass {
     if (![toClass conformsToProtocol:@protocol(YYModel)]) {
         return nil;
     }

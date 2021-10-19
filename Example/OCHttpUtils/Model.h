@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <YYModel.h>
+#import "JSONToModel/JSONToModelProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ListItem: NSObject<YYModel>
@@ -37,12 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface Response : NSObject <YYModel>
+@interface Response : NSObject <YYModel, JSONToModelProtocol>
+
 @property (nonatomic , assign) NSInteger code;
+
 @property (nonatomic, strong) id list;
 
-- (nullable id)transformToClass:(nullable Class)toClass;
-
-- (NSArray *)transformToArayyWithClass:(Class)toClass;
 @end
 NS_ASSUME_NONNULL_END

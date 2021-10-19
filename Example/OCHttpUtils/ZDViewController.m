@@ -11,6 +11,7 @@
 #import <OCHttpUtils/OCHttpUtils.h>
 
 #import "Model.h"
+#import "JSONToModel/JSONToModelProtocol.h"
 
 @interface ZDViewController ()
 
@@ -74,7 +75,7 @@
         NSLog(@"response: %@", response);
         
         if (response.code == 0) {
-            NSArray<ListItem *> *list = [response transformToArayyWithClass:[ListItem class]];
+            NSArray<ListItem *> *list = [response jsonToModelWithClass: [ListItem class]];
             
             NSLog(@"list: %@", list);
         }
@@ -99,7 +100,7 @@
             NSLog(@"response: %@", response);
             
             if (response.code == 0) {
-                NSArray *list = [response transformToArayyWithClass:[ListItem class]];
+                NSArray<ListItem *> *list = [response jsonToArayyModelsWithClass:[ListItem class]];
                 
                 NSLog(@"list: %@", list);
             }
