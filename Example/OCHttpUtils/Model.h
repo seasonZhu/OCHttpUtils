@@ -31,10 +31,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  OC对泛型的支持实在是太弱了 这样写没有什么问题,但是一编译就出问题
+ __covariant 与 __contravariant 分别是OC泛型当中的关键字
+
+ __covariant 代表协变，子类转成父类，子类型可以和父类型一样使用。
+ __contravariant  代表逆变，父类转成子类，父类型可以和子类型一样使用。
+ https://mp.weixin.qq.com/s/YNukagI-VTOsIkhlYM6dEQ
  */
-@interface BaseResponse<T: NSObject<YYModel> *> : NSObject <YYModel>
+@interface BaseResponse<__contravariant T: NSObject<YYModel> *> : NSObject <YYModel>
 @property (nonatomic , assign) NSInteger code;
-@property (nonatomic, strong) NSArray<T>  *list;
+@property (nonatomic , strong) NSArray<T>  *list;
 
 @end
 

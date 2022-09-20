@@ -26,6 +26,11 @@
 }
 @end
 
+
+@interface BaseResponse<__contravariant T: NSObject<YYModel> *> ()
+
+@end
+
 @implementation BaseResponse
 
 + (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {
